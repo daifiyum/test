@@ -1,0 +1,28 @@
+<ul id="nav">
+  <li>
+    <div id="closelc" class="fr btn hide">
+      <div class="lcbody">
+        <div class="lcitem top">
+          <div class="rect top"></div>
+        </div>
+        <div class="lcitem bottom">
+          <div class="rect bottom"></div>
+        </div>
+      </div>
+    </div>
+  </li>
+  <li class="navitem {dede:field name=typeid runphp="yes"}(@me=="")? @me="active":@me="";{/dede:field}"><a class="transform" href="/m/"><span class="circle transform"></span>首页</a></li>
+  <li class="navitem {dede:field name="typeid" runphp="yes" function="GetTopid(@me)"} if(@me=="1")@me="active"; else @me="";{/dede:field}"><a class="transform" href="/m/list.php?tid=1"><span class="circle transform"></span>菜品</a></li>
+  <li class="navitem"><a href="javascript:;" class="hassub"><span class="circle transform"></span>关于<span class="more"><span class="h"></span><span class="h v transform"></span></span></a>
+    <ul class="subnav transform" data-height="150" >
+      <li><a href="/m/list.php?tid=3"><i class="fa fa-angle-right"></i>关于</a></li>
+      <li><a href="/m/list.php?tid=4"><i class="fa fa-angle-right"></i>团队</a></li>
+      <li><a href="/m/list.php?tid=5"><i class="fa fa-angle-right"></i>新闻</a></li>
+    </ul>
+  </li>
+  <li class="navitem {dede:field name="typeid" runphp="yes" function="GetTopid(@me)"} if(@me=="6")@me="active"; else @me="";{/dede:field}"><a class="transform" href="/m/list.php?tid=6"><span class="circle transform"></span>图册</a></li>
+  <li class="navitem {dede:field name="typeid" runphp="yes" function="GetTopid(@me)"} if(@me=="7")@me="active"; else @me="";{/dede:field}"><a class="transform" href="/m/list.php?tid=7"><span class="circle transform"></span>服务</a></li>
+  <li class="navitem {dede:field name="typeid" runphp="yes" function="GetTopid(@me)"} if(@me=="8")@me="active"; else @me="";{/dede:field}"><a class="transform" href="/m/list.php?tid=8"><span class="circle transform"></span>联系</a></li>
+  <li class="navitem"><a class="transform" href="/"><span class="circle transform"></span>淘宝网店</a></li>
+</ul>
+</div>

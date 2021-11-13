@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="effect">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta name="keywords" content="{dede:field name='keywords'/}">
+<meta name="description" content="{dede:field name='description'  function='html2text(@me)'/}">
+<meta name="author" content="UEMO">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/font-awesome.min.css" rel="stylesheet">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/bxslider.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/animate.min.css">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/stylem.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css"  href="{dede:global.cfg_templets_skin/}/style/376m.css">
+<title>{dede:field.title/}-{dede:global.cfg_webname/}</title>
+</head>
+<body>
+<div id="sitecontent" class="transform">
+<div id="header">
+  <!--<div id="openlc" class="fl btn">
+    <div class="lcbody">
+      <div class="lcitem top">
+        <div class="rect top"></div>
+      </div>
+      <div class="lcitem bottom">
+        <div class="rect bottom"></div>
+      </div>
+    </div>
+  </div>-->
+  <a id="logo" href="/m/"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></a></div>
+<div class="scrollView">
+<div class="npagePage">
+  <div class="content">
+    <div id="category">
+      <div class="label plr20">
+        <div class="text">团队</div>
+      </div>
+    </div>
+    <ul id="teamlist" class="plr10">
+      {dede:list}
+      <li class="teamitem wow fadeIn"><a href="view.php?aid=[field:id/]">
+        <div id="team_img"><img src="[field:picname/]" width="90" height="90" /></div>
+        <div class="teaminfo">
+          <div class="header">
+            <p class="title">[field:title/]</p>
+            <p class="subtitle">[field:shorttitle/]</p>
+          </div>
+          <p class="description">[field:description function='cn_substr(Html2text("@me")."...",250)'/]</p>
+        </div>
+        </a></li>
+      {/dede:list}
+    </ul>
+  </div>
+</div>
+{dede:include filename="footer_m.htm"/}

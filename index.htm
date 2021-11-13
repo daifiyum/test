@@ -1,0 +1,282 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="keywords" content="{dede:global.cfg_keywords/}">
+<meta name="description" content="{dede:global.cfg_description/}">
+<meta name="author" content="Maker Cloud">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/lib.css">
+<link rel="stylesheet" type="text/css"  href="{dede:global.cfg_templets_skin/}/style/style.css">
+<link rel="stylesheet" type="text/css"  href="{dede:global.cfg_templets_skin/}/style/376.css">
+<meta name="author" content="order by adminbuy.cn" />
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/org.js" data-main="indexMain"></script>
+<title>{dede:global.cfg_webname/}</title>
+<meta http-equiv="mobile-agent" content="format=xhtml;url={dede:global.cfg_mobileurl/}/index.php">
+<script type="text/javascript">if(window.location.toString().indexOf('pref=padindex') != -1){}else{if(/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))){if(window.location.href.indexOf("?mobile")<0){try{if(/Android|Windows Phone|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)){window.location.href="{dede:global.cfg_mobileurl/}/index.php";}else if(/iPad/i.test(navigator.userAgent)){}else{}}catch(e){}}}}</script>
+</head>
+
+<body >
+{dede:include filename="head.htm"/}
+<div id="sitecontent">
+  <div id="indexPage">
+    <div id="mslider" class="module"> 
+      <script type="text/javascript">$(function(){$("#mslider li video").each(function(index, element) {element.play();});})</script>
+      <ul class="slider" data-options-height="" data-options-auto="1" data-options-mode="0" data-options-pause="6" data-options-ease="ease-out">
+        {dede:arclist   typeid='21'   flag='f'}
+        <li style="background-image:url([field:picname/])" >
+          <div id="tempImage_1"></div>
+          <img style="display:none" src="[field:picname/]" />
+          <div class="mask"></div>
+          <a target="_blank" >
+          <div>
+            <p class="title ellipsis">[field:title/]</p>
+            <p class="subtitle">[field:description function='cn_substr(Html2text("@me")."...",180)'/]</p>
+          </div>
+          <div class="sliderArrow fa fa-angle-down"></div>
+          </a></li>
+        {/dede:arclist}
+        {dede:arclist idlist='41' channelid='1' addfields='body'}
+        <li>
+          <div id="tempImage_2"></div>
+          <video width="100%" height="100%" autoplay loop preload="auto" class="slider-video" style="width:100%; height:auto;">
+            <source src="[field:body function='cn_substr(@me,330)'/]" type="video/mp4"></source>
+          </video>
+          <div class="mask"></div>
+          <a target="_blank" >
+          <div>
+            <p class="title ellipsis">[field:title/]</p>
+            <p class="subtitle">[field:description function='cn_substr(Html2text("@me")."...",180)'/]</p>
+          </div>
+          <div class="sliderArrow fa fa-angle-down"></div>
+          </a></li>
+        {/dede:arclist}
+      </ul>
+    </div>
+    <div id="mproject" class="module">
+      <div class="bgmask"></div>
+      <div class="content layoutslider">
+        <div class="header wow">
+          <p class="title">菜品</p>
+          <p class="subtitle">PRODUCTS</p>
+        </div>
+        <div id="category" class="hide wow"> {dede:channel    type ='son'    typeid ='1'  } <a href="[field:typelink/]">[field:typename/]</a> {/dede:channel} </div>
+        <!--yyLayout masonry-->
+        <div class="module-content" id="projectlist">
+          <div class="projectSubList" id="projectSubList_">
+            <div class="projectSubHeader">
+              <p class="title"></p>
+              <p class="subtitle"></p>
+            </div>
+            <div class="wrapper">
+              <ul class="content_list" data-options-sliders="4" data-options-margin="20" data-options-ease="cubic-bezier(.73,-0.03,.24,1.01)" data-options-speed="0.5">
+                {dede:arclist  row='12'  typeid='1'                     }
+                <li id="projectitem_[field:global.autoindex/]" class="projectitem wow"> <a href="[field:arcurl/]" class="projectitem_content" target="_blank">
+                  <div class="projectitem_wrapper">
+                    <div class="project_img"><img src="[field:picname/]" width="650" height="385"/></div>
+                    <div class="project_info">
+                      <div>
+                        <p class="title">[field:title/]</p>
+                        <p class="subtitle">[field:shorttitle/]</p>
+                        <p class="description hide">Semestral project - publicLocation: Nałęczów, PolandStatus: ideadate: 2016在线预约</p>
+                      </div>
+                    </div>
+                  </div>
+                  </a> </li>
+                {/dede:arclist}
+              </ul>
+            </div>
+            <!--wrapper--> 
+          </div>
+          <!--projectSubList--> 
+          <a href="#" class="more wow">MORE<i class="fa fa-angle-right"></i></a> </div>
+        <!--projectlist-->
+        <div class="clear"></div>
+      </div>
+    </div>
+    <!--project-->
+    <div id="mservice" class="module" style="background-image:url({dede:global.cfg_templets_skin/}/images/1468488692500.png); data-infiniteLoop="">
+      <div class="bgmask"></div>
+      <div class="content layoutslider">
+        <div class="header wow fw" data-wow-delay=".1s">
+          <p class="title">服务</p>
+          <p class="subtitle">SERVICE</p>
+        </div>
+        <div class="module-content fw" id="servicelist">
+          <div class="wrapper">
+            <ul class="content_list" data-options-sliders="3" data-options-margin="0" data-options-ease="1" data-options-speed="0.5">
+              {dede:arclist typeid='7'                     }
+              <li id="serviceitem_[field:global.autoindex/]" class="serviceitem wow"><a href="[field:arcurl/]" target="_blank"><img src="[field:picname/]" width="320" height="120" />
+                <div>
+                  <p class="title">[field:title/]</p>
+                  <p class="description">[field:description function='cn_substr(Html2text("@me")."...",180)'/]</p>
+                </div>
+                </a> <a href="#" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a> </li>
+              {/dede:arclist}
+            </ul>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <a href="/" class="more wow">MORE<i class="fa fa-angle-right"></i></a></div>
+    </div>
+    <div id="mpage" class="module">
+      <div class="bgmask"></div>
+      <div class="content">
+        <div class="module-content">
+          <div class="wrapper">
+            <ul class="slider one">
+              <li>
+                <div class="header wow" data-wow-delay=".2s">
+                  <p class="title">关于</p>
+                  <p class="subtitle">ABOUT US</p>
+                </div>
+                <div class="des-wrap">
+                  <p class="description wow" data-wow-delay=".3s">{dede:sql sql="select content from dede_arctype where id=2"}[field:content function=cn_substr(Html2Text(@me),750)/]{/dede:sql}</p>
+                </div>
+                {dede:type typeid='2'}<a href="[field:typelink /]" class="more wow" data-wow-delay=".5s">MORE<i class="fa fa-angle-right"></i></a>{/dede:type}
+                <div class="fimg wow" style="background-image:url({dede:global.cfg_templets_skin/}/images/1468573808434.jpg)"></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="mnews" class="module" style="background-image:url({dede:global.cfg_templets_skin/}/images/1468826587571.jpg);">
+      <div class="bgmask"></div>
+      <div class="content layoutnone">
+        <div class="header wow">
+          <p class="title">新闻</p>
+          <p class="subtitle">NEWS</p>
+        </div>
+        <div class="module-content" id="newslist">
+          <div class="wrapper">
+            <ul class="content_list" data-options-sliders="4" data-options-margin="0" data-options-ease="cubic-bezier(.73,-0.03,.24,1.01)" data-options-speed="0.8"  data-options-mode="horizontal" data-options-wheel="0">
+              {dede:arclist typeid='5'    row='4'  }
+              <li id="newsitem_[field:autoindex runphp='yes']@me=$GLOBALS['autoindex']-1;[/field:autoindex]" [field:global runphp='yes' name=autoindex] 
+if (@me==1) @me="class='wow newstitem left'"; 
+else @me="class='wow newstitem right'"; 
+[/field:global]">
+              <a class="newscontent" target="_blank" href="[field:arcurl/]">
+              <div class="news_wrapper">
+                <div class="newsbody">
+                  <p class="date"><span class="md">[field:pubdate function="MyDate('m-d',@me)"/]<span>-</span></span><span class="year">[field:pubdate function="MyDate('m-d',@me)"/]</span></p>
+                  <p class="title">[field:title/]</p>
+                  <div class="separator"></div>
+                  <p class="description">[field:description function='cn_substr(Html2text("@me")."...",180)'/]</p>
+                </div>
+              </div>
+              <div class="newsimg" style="background-image:url([field:picname/])"></div>
+              </a> <a href="[field:arcurl/]" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a>
+              </li>
+              {/dede:arclist}
+            </ul>
+          </div>
+        </div>
+        <div class="clear"></div>
+        {dede:type typeid='5'}<a href="[field:typelink /]" class="more wow">MORE<i class="fa fa-angle-right"></i></a>{/dede:type}
+        <div style="height:0"> </div>
+      </div>
+    </div>
+    <div id="mteam" data-title="" class="module">
+      <div class="bgmask"></div>
+      <div class="content layoutnone">
+        <div class="header wow">
+          <p class="title">团队</p>
+          <p class="subtitle">Team</p>
+        </div>
+        <div class="module-content fw">
+          <div class="wrapper">
+            <ul class="content_list" data-options-sliders="3" data-options-margin="20" data-options-ease="cubic-bezier(.73,-0.03,.24,1.01)" data-options-speed="1">
+              {dede:arclist typeid='4'                     }
+              <li id="teamitem_[field:global.autoindex/]"  class="wow">
+                <div class="header wow" data-wow-delay=".[field:global.autoindex/]s"><a href="[field:arcurl/]" target="_blank"><img src="[field:picname/]" width="180" height="180" /></a></div>
+                <div class="summary wow">
+                  <p class="title"><a href="[field:arcurl/]">[field:title/]</a></p>
+                  <p class="subtitle">[field:shorttitle/]</p>
+                  <p class="description wow">[field:description function='cn_substr(Html2text("@me")."...",180)'/]</p>
+                </div>
+                <a href="[field:arcurl/]" target="_blank" class="details">more<i class="fa fa-angle-right"></i></a> </li>
+              {/dede:arclist}
+            </ul>
+          </div>
+        </div>
+        <div class="clear"></div>
+        <a href="/" class="more wow">MORE<i class="fa fa-angle-right"></i></a> </div>
+    </div>
+    <div id="mpartner" class="module">
+      <div class="bgmask"></div>
+      <div class="content layoutslider">
+        <div class="header wow fw" data-wow-delay=".1s">
+          <p class="title">合作伙伴</p>
+          <p class="subtitle">OUR PARTNER</p>
+        </div>
+        <div class="module-content fw">
+          <div class="wrapper">
+            <ul class="content_list" data-options-ease="1" data-options-speed="0.5">
+              <li id="partneritem_0" class="wow"> {dede:arclist  typeid='14'  row='8' } <a title="uemo"  target="_blank" ><img src="[field:picname/]" width="160" height="80" /></a> {/dede:arclist} </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="mcontact" class="module">
+      <div class="bgmask"></div>
+      <div class="content">
+        <div class="header wow fadeInUp fw" data-wow-delay=".1s">
+          <p class="title"> 联系我们</p>
+          <p class="subtitle">CONTACT</p>
+        </div>
+        <div id="contactlist" class="fw">
+          <div id="contactinfo" class="fl wow" data-wow-delay=".2s">
+            <h3 class="ellipsis name">{dede:global.cfg_corporate/}</h3>
+            <p class="ellipsis add"><span>地点：</span>{dede:global.cfg_address/}</p>
+            <p class="ellipsis zip"><span>邮编：</span>{dede:global.cfg_postcode/}</p>
+            <p class="ellipsis tel"><span>电话：</span>{dede:global.cfg_tel/}</p>
+            <p class="ellipsis mobile"><span>手机：</span>{dede:global.cfg_mobile/}</p>
+            <p class="ellipsis email"><span>邮箱：</span>{dede:global.cfg_email/}</p>
+            <div><a class="fl" target="_blank" href="{dede:global.cfg_wb/}"><i class="fa fa-weibo"></i></a><a class="fl" target="_blank" href="tencent://message/?uin={dede:global.cfg_kefu/}&Site=uemo&Menu=yes"><i class="fa fa-qq"></i></a> <a id="mpbtn" class="fl" href="{dede:global.cfg_templets_skin/}/images/1438424052624.jpg"><i class="fa fa-weixin"></i></a></div>
+          </div>
+          <div id="contactform" class="fr wow" data-wow-delay=".2s">
+            <form action="/plus/diy.php" enctype="multipart/form-data" method="post">
+              <input type="hidden" name="action" value="post" />
+              <input type="hidden" name="diyid" value="1" />
+              <input type="hidden" name="do" value="2" />
+              <p>
+                <input type="text" class="inputtxt name" id='xm' name="xm" placeholder="姓名" autocomplete="off" />
+              </p>
+              <p>
+                <input type="text" class="inputtxt email" id='yx' name="yx"  placeholder="邮箱"  autocomplete="off"/>
+              </p>
+              <p>
+                <input type="text" class="inputtxt tel" id='dh' name="dh"  placeholder="电话"  autocomplete="off"/>
+              </p>
+              <p>
+                <textarea class="inputtxt cont" name="nr" id='nr' placeholder="内容" autocomplete="off"></textarea>
+              </p>
+              <p>
+                <input type="hidden" name="dede_fields" value="xm,text;yx,text;dh,text;nr,multitext" />
+                <input type="hidden" name="dede_fieldshash" value="2e77979dd224891e8d013062b31106d5" />
+                <input class="inputsub" type="submit" value="提交" />
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{dede:include filename="footer.htm"/} 
+<script>
+	$(function(){
+		$('.inputsub').click(function(){
+			if($('#xm').val()==''){alert('请输入姓名！');return false;}
+			if($('#yx').val()==''){alert('请输入邮箱！');return false;}
+			if($('#dh').val()==''){alert('请输入电话！');return false;}
+			if($('#nr').val()==''){alert('请输入内容！');return false;}
+		})
+	})
+</script>

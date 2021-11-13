@@ -1,0 +1,84 @@
+<!doctype html>
+<html class="effect">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta name="keywords" content="{dede:field.keywords/}">
+<meta name="description" content="{dede:field.description  function='html2text(@me)'/}">
+<meta name="author" content="UEMO">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/font-awesome.min.css" rel="stylesheet">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/bxslider.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/animate.min.css">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/stylem.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css"  href="{dede:global.cfg_templets_skin/}/style/376m.css">
+<title>{dede:field.title/}-{dede:global.cfg_webname/}</title>
+</head>
+<body>
+<div id="sitecontent" class="transform">
+<div id="header">
+  <!--<div id="openlc" class="fl btn">
+    <div class="lcbody">
+      <div class="lcitem top">
+        <div class="rect top"></div>
+      </div>
+      <div class="lcitem bottom">
+        <div class="rect bottom"></div>
+      </div>
+    </div>
+  </div>-->
+  <a id="logo" href="/m/"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></a></div>
+<div class="scrollView">
+<div class="npagePage">
+  <div class="content">
+    <div id="projectpost">
+      <div class="header">
+        <p class="title">{dede:field.title/}</p>
+        <p class="subtitle">{dede:field.shorttitle/}</p>
+      </div>
+      <ul id="projectimages" class="plr5">
+        {dede:field.body runphp="yes"}
+        $str=strip_tags("@me","<img>");
+        preg_match_all('/<img.*\>/isU',$str,$ereg);
+        //$len=count($ereg[0]);
+        @me="";
+        if($ereg[0][0]){
+        @me.=$ereg[0][0];
+        }
+        if($ereg[0][1]){
+        @me.=$ereg[0][1];
+        }
+        if($ereg[0][2]){
+        @me.=$ereg[0][2];
+        }
+        if($ereg[0][3]){
+        @me.=$ereg[0][3];
+        }
+        if($ereg[0][4]){
+        @me.=$ereg[0][4];
+        }
+        if($ereg[0][5]){
+        @me.=$ereg[0][5];
+        }
+        {/dede:field.body}
+      </ul>
+      <div class="clear"></div>
+      {dede:arclist   row='1' addfields='price,body,cpjj,brand,trueprice,units,uptime'channelid='6'}
+      <div class="postbody plr10">
+        <p>原价：[field:price/]</p>
+        <p>现价：[field:trueprice/]</p>
+        <p>原料：[field:brand/]</p>
+        <p>时间：[field:uptime/]</p>
+        <p><br />
+          简介：[field:cpjj/]</p>
+        <br />
+        <p><a href="http://wpa.qq.com/msgrd?v=3&amp;uin=[field:global.cfg_qq/]&amp;site=qq&amp;menu=yes" target="_blank" textvalue="在线预约">在线预约</a><br />
+        </p>
+      </div>
+      {/dede:arclist}</div>
+    <div id="pages"></div>
+  </div>
+</div>
+{dede:include filename="footer_m.htm"/}

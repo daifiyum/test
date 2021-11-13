@@ -1,0 +1,81 @@
+<!doctype html>
+<html class="effect">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta name="keywords" content="{dede:field.keywords/}">
+<meta name="description" content="{dede:field.description  function='html2text(@me)'/}">
+<meta name="author" content="UEMO">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/font-awesome.min.css" rel="stylesheet">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/bxslider.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/animate.min.css">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/stylem.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css"  href="{dede:global.cfg_templets_skin/}/style/376m.css">
+<title>{dede:field.title/}-{dede:global.cfg_webname/}</title>
+</head>
+<body>
+<div id="sitecontent" class="transform">
+  <div id="header"> 
+    <!--<div id="openlc" class="fl btn">
+      <div class="lcbody">
+        <div class="lcitem top">
+          <div class="rect top"></div>
+        </div>
+        <div class="lcitem bottom">
+          <div class="rect bottom"></div>
+        </div>
+      </div>
+    </div>--> 
+    <a id="logo" href="/m/"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></a></div>
+  <div class="scrollView">
+    <div class="npagePage">
+      <div class="content">
+        <div id="category" class="dropmenu">
+          <div class="label plr20"><i class="down fa fa-angle-down transform"></i>
+            <div class="text">全部</div>
+          </div>
+          <ul class="transform" data-height="123">
+            <li><a href="/m/list.php?tid=5" class='active' >全部</a></li>
+            {dede:channel currentstyle="
+            <li><a href='~typelink~' class='active'>~typename~</a> </li>
+            "                       }
+            <li><a href="list.php?tid=[field:id/]">[field:typename/]</a></li>
+            {/dede:channel}
+          </ul>
+        </div>
+        <div id="newslist"> {dede:list pagesize ='20'}
+          <div class="newstitem plr10 wow fadeIn"><a class="newsinfo" href="view.php?aid=[field:id/]">
+            <div class="newsdate">
+              <p class="md">[field:pubdate function="MyDate('m-d',@me)"/]</p>
+              <p class="year">[field:pubdate function="MyDate('Y',@me)"/]</p>
+            </div>
+            <div class="newsbody">
+              <p class="title ellipsis">[field:title/]</p>
+              <p class="description">[field:description function='cn_substr(Html2text("@me")."...",250)'/]</p>
+            </div>
+            </a></div>
+          {/dede:list} </div>
+        <div class="pagess">
+<ul>
+ {dede:pagelist listitem="pre,next" listsize="5"/}
+</ul>
+</div>
+      </div>
+    </div>
+    <div id="footer">
+      <p class="plr10"><span>{dede:global.cfg_powerby/}</span></p>
+    </div>
+    <div id="bgmask" class="iPage hide"></div>
+  </div>
+</div>
+<div id="leftcontrol">
+{dede:include filename="footer_nav_m.htm"/} 
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/zepto.min.js"></script> 
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/zepto.bxslider.min.js"></script> 
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/wow.min.js"></script> 
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/masonry_4.min.js"></script> 
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/js/org.min.js"  data-main="ListMain"></script>
+</html>

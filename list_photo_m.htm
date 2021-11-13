@@ -1,0 +1,77 @@
+<!doctype html>
+<html class="effect">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta name="keywords" content="{dede:field name='keywords'/}">
+<meta name="description" content="{dede:field name='description'  function='html2text(@me)'/}">
+<meta name="author" content="UEMO">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/font-awesome.min.css" rel="stylesheet">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/bxslider.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/animate.min.css">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/stylem.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css"  href="{dede:global.cfg_templets_skin/}/style/376m.css">
+<title>{dede:field.title/}-{dede:global.cfg_webname/}</title>
+</head>
+<body>
+<div id="sitecontent" class="transform">
+<div id="header">
+  <!--<div id="openlc" class="fl btn">
+    <div class="lcbody">
+      <div class="lcitem top">
+        <div class="rect top"></div>
+      </div>
+      <div class="lcitem bottom">
+        <div class="rect bottom"></div>
+      </div>
+    </div>
+  </div>-->
+  <a id="logo" href="/m/"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></a></div>
+<div class="scrollView">
+<div id="pagepost" class="npagePage">
+  <div class="content plr10">
+    <div class="header">
+      <p class="title">{dede:sql sql="select typename from dede_arctype where  id=6"}
+        [field:typename function="cn_substr(@me,1000)"/]{/dede:sql}</p>
+      <p class="subtitle">about uemo</p>
+    </div>
+    <div class="postbody">
+      <p style="text-align: center;"><span style="font-size: 16px;"></span></p>
+      <p style="text-align: center;"><span style="margin: 0px; padding: 0px; line-height: 29.12px; font-family: &#39;Microsoft YaHei&#39;; font-size: 14px;"></span><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;"> <span style=" font-size: 14px; line-height: 30px; ">{dede:sql sql="select description from dede_arctype where  id=6"}
+        [field:description function="cn_substr(@me,1000)"/]
+        {/dede:sql}</span> <span style="line-height: 19.6px; font-size: 14px; background-color: rgb(255, 255, 255);"></span></span></p>
+      <p style="text-align: center;"><span style="font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;"><span style=" font-size: 14px; line-height: 30px;"></span></span></p>
+      <hr />
+      {dede:channelartlist           typeid ='6'  type ='son'            }
+      <p style="text-align:center;font-size: 34px; font-family:HELVETICANEUELTPRO-THEX,chicago; text-align:center;margin-top:15px"><span style=" font-family: HELVETICANEUELTPRO-THEX, chicago; font-size: 34px; line-height: 24px; text-align: center; ">{dede:field.typeid runphp='yes'}
+        global $dsql;
+        $row = $dsql->GetOne("select count(*) as dd from dede_archives where typeid = @me");
+        @me = $row['dd'];
+        {/dede:field.typeid}</span></p>
+      <p style="text-align:center;font-size:12px;margin-bottom:10px"><span style="font-size: 12px; "><a href="list.php?tid={dede:field.id/}">{dede:field name='typename'/}</a></span></p>
+      {/dede:channelartlist}
+      <hr />
+      <p><br />
+      </p>
+      {dede:list pagesize ='20'}
+      <p style="text-align:center"><img src="[field:picname/]" title="undefined" alt="undefined" style="white-space: normal;" border="0" height="" vspace="0" /></p>
+      <p><span style="color: rgb(89, 89, 89);"><strong><span style="font-size: 16px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;"><br />
+        </span></strong></span></p>
+      <p><span style="color: rgb(242, 242, 242);"><strong><span style="font-size: 16px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;">[field:title/]</span></strong></span></p>
+      <p><strong><span style="color: rgb(127, 127, 127); font-size: 16px; font-family: 微软雅黑, &#39;Microsoft YaHei&#39;;"><br />
+        </span></strong></p>
+      <p><span style="color: rgb(127, 127, 127);">[field:description function='cn_substr(Html2text("@me")."...",250)'/]</span></p>
+      <p><span style="color: rgb(127, 127, 127);"><br />
+        </span></p>
+      {/dede:list} </div>
+    <div class="pagess">
+<ul>
+ {dede:pagelist listitem="end,pre,next" listsize="5"/}
+</ul>
+</div>
+  </div>
+</div>
+{dede:include filename="footer_m.htm"/}

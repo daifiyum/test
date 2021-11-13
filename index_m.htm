@@ -1,0 +1,182 @@
+<!doctype html>
+<html class="effect">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<meta name="keywords" content="{dede:global.cfg_keywords/}">
+<meta name="description" content="{dede:global.cfg_description/}">
+<meta name="author" content="UEMO">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/font-awesome.min.css" rel="stylesheet">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/bxslider.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style/animate.min.css">
+<link type="text/css" href="{dede:global.cfg_templets_skin/}/style/stylem.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css"  href="{dede:global.cfg_templets_skin/}/style/376m.css">
+<title>{dede:global.cfg_webname/}</title>
+</head>
+<body>
+<div id="sitecontent" class="transform">
+<div id="header"> 
+  <!--<div id="openlc" class="fl btn">
+    <div class="lcbody">
+      <div class="lcitem top">
+        <div class="rect top"></div>
+      </div>
+      <div class="lcitem bottom">
+        <div class="rect bottom"></div>
+      </div>
+    </div>
+  </div>--> 
+  <a id="logo" href="index.php"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" /></a></div>
+<div class="scrollView">
+<div id="indexPage">
+  <div id="mslider">
+    <ul class="slider">
+      {dede:arclist typeid='21'}
+      <li style="background-image:url([field:picname/])"><a >
+        <div>
+          <p class="title ellipsis">[field:title/]</p>
+          <p class="subtitle">[field:description function='cn_substr(Html2text("@me")."...",180)'/] 
+        </div>
+        </a></li>
+      {/dede:arclist}
+    </ul>
+  </div>
+  <div id="mproject" class="module">
+    <div class="content">
+      <div class="header">
+        <p class="title">菜品</p>
+        <p class="subtitle">PRODUCTS</p>
+      </div>
+      <div id="projectlist">
+        <div class="wrapper plr5"> {dede:arclist row='6' typeid='1' }
+          <div class="projectitem wow fadeIn"><a href="view.php?aid=[field:id/]"><img src="[field:picname/]" width="500" height="320"/>
+            <div class="project_info">
+              <div>
+                <p class="title">[field:title/]</p>
+                <p class="subtitle">[field:shorttitle/]</p>
+              </div>
+            </div>
+            </a></div>
+          {/dede:arclist} </div>
+      </div>
+      <div class="clear"></div>
+      {dede:type typeid='1'}<a href="list.php?tid=[field:id/]" id="projectmore">MORE</a>{/dede:type}</div>
+  </div>
+  <div id="mservice" class="module">
+    <div class="content">
+      <div class="header">
+        <p class="title">服务</p>
+        <p class="subtitle">SERVICE</p>
+      </div>
+      <div class="slider_wrapper">
+        <ul class="slider">
+          {dede:arclist  typeid='7'}
+          <li class="serviceitem wow fadeIn"><a href="view.php?aid=[field:id/]"><img src="[field:picname/]" width="160" height="60" /></a>
+            <div>
+              <p class="title">[field:title/]</p>
+              <p class="description">[field:description function='cn_substr(Html2text("@me")."...",180)'/]</p>
+            </div>
+          </li>
+          {/dede:arclist}
+        </ul>
+      </div>
+      {dede:type typeid='7'}<a href="list.php?tid=[field:id/]" class="more">MORE</a>{/dede:type}
+      <div style="height:0">&nbsp;</div>
+    </div>
+  </div>
+  <div id="mpage" class="module">
+    <div class="content">
+      <div class="plr10">
+        <div class="header">
+          <p class="title">关于我们</p>
+          <p class="subtitle">ABOUT US</p>
+        </div>
+        <p class="description">{dede:sql sql="select content from dede_arctype where id=2"}[field:content function=cn_substr(Html2Text(@me),652)/]{/dede:sql}</p>
+      </div>
+      {dede:type typeid='2'}<a href="list.php?tid=[field:id/]" class="more">MORE</a>{/dede:type}
+      <div class="fimg wow fadeIn" style="background-image:url({dede:global.cfg_templets_skin/}/images/1468573808434.jpg)"></div>
+      <div style="height:0">&nbsp;</div>
+    </div>
+  </div>
+  <div id="mnews" class="module">
+    <div class="content">
+      <div class="header">
+        <p class="title">新闻</p>
+        <p class="subtitle">NEWS</p>
+      </div>
+      <div id="newslist"> {dede:arclist  row='3'  typeid='5'  }
+        <div class="newstitem plr10 wow fadeIn" data-wow-delay="0.[field:global.autoindex/]s"><a class="newsinfo" href="view.php?aid=[field:id/]">
+          <div class="newsdate">
+            <p class="md">[field:pubdate function="MyDate('m-d',@me)"/]</p>
+            <p class="year">[field:pubdate function="MyDate('Y',@me)"/]</p>
+          </div>
+          <div class="newsbody">
+            <p class="title ellipsis">[field:title/]</p>
+            <p class="description">[field:description function='cn_substr(Html2text("@me")."...",180)'/]</p>
+          </div>
+          </a></div>
+        {/dede:arclist} </div>
+      <div class="clear"></div>
+      {dede:type typeid='5'}<a href="list.php?tid=[field:id/]" class="more">MORE</a>{/dede:type}
+      <div style="height:0">&nbsp;</div>
+    </div>
+  </div>
+  <div id="mteam" class="module">
+    <div class="content plr10">
+      <div class="header">
+        <p class="title">团队</p>
+        <p class="subtitle">Team</p>
+      </div>
+      <ul id="teamlist">
+        {dede:arclist row='3'  typeid='4'  }
+        <li class="teamitem wow fadeIn"><a href="view.php?aid=[field:id/]">
+          <div id="mteam_img"><img src="[field:picname/]" width="90" height="90" /></div>
+          <div class="teaminfo">
+            <div class="header">
+              <p class="title">[field:title/]</p>
+              <p class="subtitle">[field:shorttitle/]</p>
+            </div>
+            <p class="description">[field:description function='cn_substr(Html2text("@me")."...",180)'/]</p>
+          </div>
+          </a></li>
+        {/dede:arclist}
+      </ul>
+      {dede:type typeid='4'}<a href="list.php?tid=[field:id/]" class="more">MORE</a>{/dede:type}
+      <div style="height:0">&nbsp;</div>
+    </div>
+  </div>
+  <div id="mpartner" class="module">
+    <div class="content">
+      <div class="wrapper">
+        <ul style="width:1280px">
+          {dede:arclist  typeid='14'  row='8'}
+          <li><a title="uemo"  target="_blank" ><img src="[field:picname/]" width="160" height="80" /></a></li>
+          {/dede:arclist}
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="mcontact" class="module">
+    <div class="content plr10 wow fadeIn">
+      <div class="header">
+        <p class="title"> 联系我们</p>
+        <p class="subtitle">CONTACT</p>
+      </div>
+      <div id="contactlist">
+        <div id="contactinfo">
+          <h3 class="ellipsis">{dede:global.cfg_corporate/}</h3>
+          <p class="ellipsis">地点：{dede:global.cfg_address/}</p>
+          <p class="ellipsis">邮编：{dede:global.cfg_postcode/}</p>
+          <p class="ellipsis">电话：<a href='tel:{dede:global.cfg_tel/}'>{dede:global.cfg_tel/}</a></p>
+          <p class="ellipsis">手机：<a href='tel:{dede:global.cfg_mobile/}'>{dede:global.cfg_mobile/}</a></p>
+          <p class="ellipsis">邮箱：{dede:global.cfg_email/}</p>
+          <div><a class="fl" href="{dede:global.cfg_wb/}"><i class="fa fa-weibo"></i></a> <a id="mpbtn" class="fl" href="{dede:global.cfg_templets_skin/}/images/1438424052624.jpg"><i class="fa fa-weixin"></i></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{dede:include filename="footer_m.htm"/} 

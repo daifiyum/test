@@ -1,0 +1,27 @@
+<div id="header"><div class="content"><a href="/" id="logo"><img src="{dede:global.cfg_templets_skin/}/images/logo.png" height="40" /></a>
+<ul id="nav">
+<li class="navitem"><a {dede:field name=typeid runphp="yes"}(@me=="")? @me=" class='active'":@me="";{/dede:field} href="/" target="_self">首页</a></li>
+{dede:channelartlist typeid='top' currentstyle='active'}
+    <li class="navitem"><a class='{dede:field.currentstyle/}' href="{dede:field name='typeurl'/}">{dede:field name='typename'/}
+	<!--
+	<i class='fa fa-angle-down'></i>
+	-->
+	</a>
+    {dede:php}
+    $id = $refObj->Fields['id'];
+    $sql = ("SELECT * FROM dede_arctype where reid ='$id'");
+    $db->SetQuery($sql);
+    $db->Execute();
+    if($db->GetTotalRow()){
+        echo '<ul class="subnav">';
+        while($row = $db->GetArray()){
+            $url = str_replace('{cmspath}','',($row[typedir]));
+            echo "<li><a href=".$url.">".($row[typename])."</a></li>";
+        };
+        echo '</ul>';
+    };
+    {/dede:php}
+    </li>
+{/dede:channelartlist}
+</ul>
+<div class="clear"></div></div><a id="headSHBtn" href="javascript:;"><i class="fa fa-bars"></i></a></div>
